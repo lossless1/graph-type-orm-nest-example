@@ -1,0 +1,140 @@
+# type: Brand
+type Brand {
+  id: Int
+  name: String
+  website: String
+  createDate: DateTime
+  updateDate: DateTime
+}
+
+# input: BrandFilter
+input BrandFilter {
+  id: Int
+  id_contains: Int
+  id_notContains: Int
+  id_gt: Int
+  id_gte: Int
+  id_lt: Int
+  id_lte: Int
+  id_between: [Int]
+  id_notBetween: [Int]
+  id_in: [Int]
+  id_notIn: [Int]
+  id_like: Int
+  id_notLike: Int
+  id_iLike: Int
+  id_notILike: Int
+
+  name: String
+  name_contains: String
+  name_notContains: String
+  name_gt: String
+  name_gte: String
+  name_lt: String
+  name_lte: String
+  name_between: [String]
+  name_notBetween: [String]
+  name_in: [String]
+  name_notIn: [String]
+  name_like: String
+  name_notLike: String
+  name_iLike: String
+  name_notILike: String
+
+  website: String
+  website_contains: String
+  website_notContains: String
+  website_gt: String
+  website_gte: String
+  website_lt: String
+  website_lte: String
+  website_between: [String]
+  website_notBetween: [String]
+  website_in: [String]
+  website_notIn: [String]
+  website_like: String
+  website_notLike: String
+  website_iLike: String
+  website_notILike: String
+
+  createDate: DateTime
+  createDate_contains: DateTime
+  createDate_notContains: DateTime
+  createDate_gt: DateTime
+  createDate_gte: DateTime
+  createDate_lt: DateTime
+  createDate_lte: DateTime
+  createDate_between: [DateTime]
+  createDate_notBetween: [DateTime]
+  createDate_in: [DateTime]
+  createDate_notIn: [DateTime]
+  createDate_like: DateTime
+  createDate_notLike: DateTime
+  createDate_iLike: DateTime
+  createDate_notILike: DateTime
+
+  updateDate: DateTime
+  updateDate_contains: DateTime
+  updateDate_notContains: DateTime
+  updateDate_gt: DateTime
+  updateDate_gte: DateTime
+  updateDate_lt: DateTime
+  updateDate_lte: DateTime
+  updateDate_between: [DateTime]
+  updateDate_notBetween: [DateTime]
+  updateDate_in: [DateTime]
+  updateDate_notIn: [DateTime]
+  updateDate_like: DateTime
+  updateDate_notLike: DateTime
+  updateDate_iLike: DateTime
+  updateDate_notILike: DateTime
+
+  OR: [BrandFilter]
+  AND: [BrandFilter]
+}
+
+# enum: BrandEnum
+enum BrandEnum {
+  id
+  name
+  website
+  createDate
+  updateDate
+}
+
+# input: BrandOrderByElement
+input BrandOrderByElement {
+  sort: BrandEnum!
+  order: Order!
+}
+
+# type: Query
+type Query {
+  Brand(
+    id: Int!,
+  ): Brand
+
+  allBrands(
+    filter: BrandFilter,
+    pagination: Pagination,
+    orderBy: [BrandOrderByElement],
+  ): [Brand]
+}
+
+# type: Mutation
+type Mutation {
+  createBrand(
+    name: String!,
+    website: String!,
+  ): Brand
+
+  updateBrand(
+    id: Int!,
+    name: String,
+    website: String,
+  ): Brand
+
+  deleteBrand(
+    id: Int!,
+  ): Brand
+}
